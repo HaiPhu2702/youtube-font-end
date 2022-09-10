@@ -4,7 +4,6 @@ import Card from "../components/Card";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-const baseUrl=process.env.REACT_APP_BASE_URL
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ const [videos,setVideo]=useState([])
 
 useEffect(()=>{
   const fetchVideos=async () => { 
-    const res=await axios.get(baseUrl+`/videos/${type}`)
+    const res=await axios.get(`/videos/${type}`)
     setVideo(res.data)
   }
   fetchVideos();

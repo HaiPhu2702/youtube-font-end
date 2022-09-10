@@ -6,7 +6,6 @@ import {loginFailure, loginStart, loginSuccess, SignUpSuccess, SignUpStart, Sign
 import {auth, provider} from "../firebase"
 import {signInWithPopup} from "firebase/auth"
 import {useNavigate} from "react-router-dom";
-const baseUrl=process.env.REACT_APP_BASE_URL
 
 const Container = styled.div`
   display: flex;
@@ -84,7 +83,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(loginStart())
         try {
-            const res = await axios.post(baseUrl+"/auth/signin", {name, password})
+            const res = await axios.post("/auth/signin", {name, password})
             dispatch(loginSuccess(res.data))
             navigate(`/`)
         } catch (e) {
@@ -97,7 +96,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(SignUpStart())
         try {
-            const res = await axios.post(baseUrl+"/auth/signup", {name, email, password})
+            const res = await axios.post("/auth/signup", {name, email, password})
             if (res.data.success === true) {
                 setSignupSuccess(true)
                 setSignupFailure(false)
@@ -114,7 +113,7 @@ const SignIn = () => {
 
         signInWithPopup(auth, provider)
             .then(result => {
-                axios.post(baseUrl+'/auth/google', {
+                axios.post('/auth/google', {
                     name: result.user.displayName,
                     email: result.user.email,
                     img: result.user.photoURL

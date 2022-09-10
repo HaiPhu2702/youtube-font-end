@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="602aef6c-0dc6-4ad3-9929-7a427281e390" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Video.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Video.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +51,7 @@
       <workItem from="1662709083516" duration="4085000" />
       <workItem from="1662779900066" duration="134000" />
       <workItem from="1662780384497" duration="3721000" />
-      <workItem from="1662786740672" duration="1180000" />
+      <workItem from="1662786740672" duration="1511000" />
     </task>
     <servers />
   </component>

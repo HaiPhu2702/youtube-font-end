@@ -90,6 +90,7 @@ const Menu = ({darkMode, setDarkMode}) => {
 
     const handleLogout = () => {
        localStorage.setItem('token','')
+       localStorage.setItem('persist:root','')
         navigate('/signin')
     }
 

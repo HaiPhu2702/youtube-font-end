@@ -83,7 +83,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(loginStart())
         try {
-            const res = await axios.post("/auth/signin", {name, password})
+            const res = await axios.post("https://youtube-codegymm.herokuapp.com/api/auth/signin", {name, password})
             dispatch(loginSuccess(res.data))
             navigate(`/`)
         } catch (e) {
@@ -96,7 +96,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(SignUpStart())
         try {
-            const res = await axios.post("/auth/signup", {name, email, password})
+            const res = await axios.post("https://youtube-codegymm.herokuapp.com/api/auth/signup", {name, email, password})
             if (res.data.success === true) {
                 setSignupSuccess(true)
                 setSignupFailure(false)
@@ -113,7 +113,7 @@ const SignIn = () => {
 
         signInWithPopup(auth, provider)
             .then(result => {
-                axios.post('/auth/google', {
+                axios.post('https://youtube-codegymm.herokuapp.com/api/auth/google', {
                     name: result.user.displayName,
                     email: result.user.email,
                     img: result.user.photoURL

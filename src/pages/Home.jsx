@@ -16,7 +16,7 @@ const [videos,setVideo]=useState([])
 
 useEffect(()=>{
   const fetchVideos=async () => { 
-    const res=await axios.get(`/videos/${type}`)
+    const res=await axios.get(`https://youtube-codegymm.herokuapp.com/api/videos/${type}`)
     setVideo(res.data)
   }
   fetchVideos();

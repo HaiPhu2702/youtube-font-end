@@ -150,9 +150,9 @@ const Video = () => {
 
     const fetchData = async () => {
         try {
-            const videoRes = await axios.get(`/videos/find/${id}`);
+            const videoRes = await axios.get(`https://youtube-codegymm.herokuapp.com/api/videos/find/${id}`);
             const channelRes = await axios.get(
-                `/users/find/${videoRes.data.userId}`
+                `https://youtube-codegymm.herokuapp.com/api/users/find/${videoRes.data.userId}`
             );
             setChannel(channelRes.data);
             dispatch(fetchSuccess(videoRes.data));
@@ -166,25 +166,25 @@ const Video = () => {
 }, [id, dispatch]);
 
     const handleLike = async () => {
-        await axios.put(`/users/like/${currentVideo._id}`);
+        await axios.put(`https://youtube-codegymm.herokuapp.com/api/users/like/${currentVideo._id}`);
         dispatch(like(currentUser._id));
     };
 
     const handleDisLike = async () => {
-        await axios.put(`/users/dislike/${currentVideo._id}`);
+        await axios.put(`https://youtube-codegymm.herokuapp.com/api/users/dislike/${currentVideo._id}`);
         dispatch(dislike(currentUser._id));
     };
 
     const handleSubscribe = async () => {
         currentUser.subscribedUsers.includes(chanel._id)
-            ? await axios.put(`/users/unsub/${chanel._id}`)
-            : await axios.put(`/users/sub/${chanel._id}`);
+            ? await axios.put(`https://youtube-codegymm.herokuapp.com/api/users/unsub/${chanel._id}`)
+            : await axios.put(`https://youtube-codegymm.herokuapp.com/api/users/sub/${chanel._id}`);
 
         dispatch(subscription(chanel._id))
     }
 
     const handleDelete = async () => {
-        await axios.delete(`/videos/${id}`)
+        await axios.delete(`https://youtube-codegymm.herokuapp.com/api/videos/${id}`)
             .then(res=>navigate('/'))
             .catch(err=>alert(err.response.data.message));
     }

@@ -7,7 +7,6 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Upload from "./Upload";
-import search from "../pages/Search";
 
 const Container = styled.div`
   position: sticky;

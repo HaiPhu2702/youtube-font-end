@@ -18,11 +18,11 @@ const Search = () => {
 
     useEffect(() => {
         const fetchVideo = async () => {
-            const res = await axios.get(`/videos/search${query}`)
+            const res = await axios.get(`https://youtube-codegymm.herokuapp.com/api/videos/search${query}`)
             setVideos(res.data)
         }
         fetchVideo()
-    }, [])
+    }, [query])
     return (
         <Container>
             {videos.map(video => (

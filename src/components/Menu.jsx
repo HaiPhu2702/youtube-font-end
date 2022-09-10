@@ -15,9 +15,8 @@ import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -85,7 +84,6 @@ const Title = styled.h2`
 `;
 
 const Menu = ({darkMode, setDarkMode}) => {
-const navigate=useNavigate()
     const {currentUser} = useSelector(state => state.user)
 
 

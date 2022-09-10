@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from "styled-components"
 import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import app from "../firebase"
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 import {useNavigate, useParams} from "react-router-dom";
 
 const Container = styled.div`
@@ -72,7 +72,6 @@ const Upload = ({setClose,setUpdate}) => {
     const [imgPerc, setImgPerc] = useState(0);
     const [videoPerc, setVideoPerc] = useState(0);
 
-    //input title , desciption
     const [inputs, setInputs] = useState({});
     const handleChange=e=>{
         setInputs(prev=>{
@@ -88,7 +87,6 @@ const Upload = ({setClose,setUpdate}) => {
 
 
 
-    //khi onchange up load video or image  goi ham upload
     useEffect(() => {
        video && upload(video,"videoUrl")
     }, [video])
@@ -97,7 +95,6 @@ const Upload = ({setClose,setUpdate}) => {
       image &&  upload(image,"imgUrl")
     }, [image])
 
-    //ham upLoad giup đẩy file len firebase +Tao link
     const upload = (file,urlType) => {
         const storage = getStorage(app);
         const fileName = new Date().getTime() + file.name;
@@ -115,6 +112,8 @@ const Upload = ({setClose,setUpdate}) => {
                         break;
                     case 'running':
                         console.log('Upload is running');
+                        break;
+                    default:
                         break;
                 }
             },
@@ -138,9 +137,9 @@ const Upload = ({setClose,setUpdate}) => {
     const {id} = useParams();
     console.log(id)
     const handleUpdateVideo=async ()=>{
-        await axios.put(`/videos/${id}`)
+        await axiosClient.put(`/videos/${id}`)
             .then(response=>{
-                 axios.delete(`/videos/${id}`);
+                axiosClient.delete(`/videos/${id}`);
                 navigate('/')
             })
             .catch(err=>alert(err.response.data))
@@ -148,7 +147,7 @@ const Upload = ({setClose,setUpdate}) => {
     //onClick
     const handleUpload=async (e)=>{
         e.preventDefault();
-       const res= await axios.post('/videos',{...inputs,tags})
+       const res= await axiosClient.post('/videos',{...inputs,tags})
         {setClose?setClose(false):setUpdate(false)}
         { setClose ? ( res.status===200 && navigate(`/video/${res.data._id}`)) : handleUpdateVideo()  }
     }

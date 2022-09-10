@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import Comment from "./Comment";
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 import {useSelector} from "react-redux";
 
 const Container = styled.div``;
@@ -36,7 +36,7 @@ const [comments,setComments]=useState([])
 useEffect(()=>{
     const fetComments=async ()=>{
         try {
-            const commentRes=  await axios.get(`/comments/${videoId}`)
+            const commentRes=  await axiosClient.get(`/comments/${videoId}`)
             setComments(commentRes.data)
         }catch (e) {}
     }

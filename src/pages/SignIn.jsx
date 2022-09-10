@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import styled from "styled-components";
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 import {useDispatch} from "react-redux";
 import {loginFailure, loginStart, loginSuccess, SignUpStart, SignUpFailure} from "../redux/userSlice";
 import {auth, provider} from "../firebase"
@@ -83,7 +83,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(loginStart())
         try {
-            const res = await axios.post("https://youtube-codegymm.herokuapp.com/api/auth/signin", {name, password})
+            const res = await axiosClient.post("/auth/signin", {name, password})
             dispatch(loginSuccess(res.data))
             navigate(`/`)
         } catch (e) {
@@ -96,7 +96,7 @@ const SignIn = () => {
         e.preventDefault();
         dispatch(SignUpStart())
         try {
-            const res = await axios.post("https://youtube-codegymm.herokuapp.com/api/auth/signup", {name, email, password})
+            const res = await axiosClient.post("/auth/signup", {name, email, password})
             if (res.data.success === true) {
                 setSignupSuccess(true)
                 setSignupFailure(false)
@@ -113,7 +113,7 @@ const SignIn = () => {
 
         signInWithPopup(auth, provider)
             .then(result => {
-                axios.post('https://youtube-codegymm.herokuapp.com/api/auth/google', {
+                axiosClient.post('/auth/google', {
                     name: result.user.displayName,
                     email: result.user.email,
                     img: result.user.photoURL

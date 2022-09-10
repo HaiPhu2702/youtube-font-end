@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Card from "../components/Card";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const [videos,setVideo]=useState([])
 
 useEffect(()=>{
   const fetchVideos=async () => { 
-    const res=await axios.get(`https://youtube-codegymm.herokuapp.com/api/videos/${type}`)
+    const res=await axiosClient.get(`/videos/${type}`)
     setVideo(res.data)
   }
   fetchVideos();

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components"
 import {useLocation} from "react-router-dom";
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 import Card from "../components/Card"
 
 const Container = styled.div`
@@ -18,7 +18,7 @@ const Search = () => {
 
     useEffect(() => {
         const fetchVideo = async () => {
-            const res = await axios.get(`https://youtube-codegymm.herokuapp.com/api/videos/search${query}`)
+            const res = await axiosClient.get(`/videos/search${query}`)
             setVideos(res.data)
         }
         fetchVideo()

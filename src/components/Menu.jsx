@@ -16,7 +16,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -84,11 +84,13 @@ const Title = styled.h2`
 `;
 
 const Menu = ({darkMode, setDarkMode}) => {
+    const navigate = useNavigate()
     const {currentUser} = useSelector(state => state.user)
 
 
     const handleLogout = () => {
-
+       localStorage.setItem('token','')
+        navigate('/signin')
     }
 
 
@@ -125,13 +127,13 @@ const Menu = ({darkMode, setDarkMode}) => {
                 </Link>
 
                 <Hr/>
-                <Item>
-                    <VideoLibraryOutlinedIcon/>
-                    Library
+                <Item onClick={() => setDarkMode(!darkMode)}>
+                    <SettingsBrightnessOutlinedIcon/>
+                    {darkMode ? "Light" : "Dark"} Mode
                 </Item>
-                <Item>
-                    <HistoryOutlinedIcon/>
-                    History
+                <Item onClick={handleLogout}>
+                    <LogoutIcon />
+                    Logout
                 </Item>
                 <Hr/>
 
@@ -178,13 +180,13 @@ const Menu = ({darkMode, setDarkMode}) => {
                     Live
                 </Item>
                 <Hr/>
-                <Item onClick={() => setDarkMode(!darkMode)}>
-                    <SettingsBrightnessOutlinedIcon/>
-                    {darkMode ? "Light" : "Dark"} Mode
+                 <Item>
+                    <VideoLibraryOutlinedIcon/>
+                    Library
                 </Item>
-                <Item onClick={handleLogout}>
-                    <LogoutIcon />
-                    Logout
+                <Item>
+                    <HistoryOutlinedIcon/>
+                    History
                 </Item>
                 <Item>
                     <SettingsOutlinedIcon/>

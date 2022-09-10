@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosClient from "../api/axiosClient";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -53,13 +53,11 @@ const Info = styled.div`
 `;
 
 const Card = ({ type,video }) => {
-// const [video,setVideo]=useState()
-  //lay ten kenh va anh cua kenh
   const [chanel,setChannel]=useState({})
 
 useEffect(()=>{
   const fetchChannel=async()=>{
-    const res=await axios.get(`/users/find/${video.userId}`)
+    const res=await axiosClient.get(`/users/find/${video.userId}`)
       setChannel(res.data)
 }
 fetchChannel();

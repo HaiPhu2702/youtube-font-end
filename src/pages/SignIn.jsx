@@ -84,7 +84,7 @@ const SignIn = () => {
         try {
             const res = await axiosClient.post("/auth/signin", {name, password})
             dispatch(loginSuccess(res.data))
-            navigate(`/`)
+            navigate(`/home`)
         } catch (e) {
             dispatch(loginFailure())
         }
@@ -138,8 +138,8 @@ const SignIn = () => {
 
 
                 <Title>or</Title>
-                <Button onClick={handleSignInWithGoogle}>Sign In With Google</Button>
-                <Title>or</Title>
+                {/*<Button onClick={handleSignInWithGoogle}>Sign In With Google</Button>*/}
+                {/*<Title>or</Title>*/}
 
                 {signupSuccess && <p style={{color: "blue"}}>SignUp success</p>}
                 {SignFailure && <p style={{color: "red"}}>SignUp fail, please check again!!</p>}

@@ -103,7 +103,7 @@ const Menu = ({darkMode, setDarkMode}) => {
                         LamaTube
                     </Logo>
                 </Link>
-                <Link to="/" style={{textDecoration: "none", color: "inherit"}}>
+                <Link to="/home" style={{textDecoration: "none", color: "inherit"}}>
 
                     <Item>
                         <HomeIcon/>
@@ -141,7 +141,7 @@ const Menu = ({darkMode, setDarkMode}) => {
                     <>
                         <Login>
                             Sign in to like videos, comment, and subscribe.
-                            <Link to="signin" style={{tetDecoration: "none"}}>
+                            <Link to="" style={{tetDecoration: "none"}}>
                                 <Button>
                                     <AccountCircleOutlinedIcon/>
                                     SIGN IN

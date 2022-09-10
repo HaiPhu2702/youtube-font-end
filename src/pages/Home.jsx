@@ -22,7 +22,6 @@ useEffect(()=>{
   fetchVideos();
 },[type])
 
-
   return (
     <Container>
       {videos.map(video =>(

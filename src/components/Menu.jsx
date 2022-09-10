@@ -94,7 +94,6 @@ const Menu = ({darkMode, setDarkMode}) => {
         navigate('/signin')
     }
 
-
     return (
         <Container>
             <Wrapper>
@@ -137,7 +136,6 @@ const Menu = ({darkMode, setDarkMode}) => {
                     Logout
                 </Item>
                 <Hr/>
-
                 {
                     !currentUser &&
                     <>
@@ -153,7 +151,6 @@ const Menu = ({darkMode, setDarkMode}) => {
                         <Hr/>
                     </>
                 }
-
 
                 <Title>BEST OF LAMATUBE</Title>
                 <Item>

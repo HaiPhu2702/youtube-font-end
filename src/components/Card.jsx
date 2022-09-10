@@ -63,8 +63,6 @@ useEffect(()=>{
 fetchChannel();
 },[video.userId])
 
-
-
   return (
     <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
       <Container type={type}>

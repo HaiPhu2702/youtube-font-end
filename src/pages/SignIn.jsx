@@ -69,7 +69,6 @@ const Link = styled.span`
   margin-left: 30px;
 `;
 
-
 const SignIn = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")

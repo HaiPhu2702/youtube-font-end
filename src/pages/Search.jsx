@@ -11,7 +11,6 @@ const Container = styled.div`
 
 `
 
-
 const Search = () => {
     const [videos, setVideos] = useState([]);
     const query = useLocation().search
@@ -31,9 +30,7 @@ const Search = () => {
                     video={video}
                 />
             ))}
-
         </Container>
     );
 };
-
 export default Search;

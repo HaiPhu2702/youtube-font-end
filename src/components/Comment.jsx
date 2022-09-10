@@ -58,7 +58,6 @@ const Comment = ({comment}) => {
         <Text>
             {comment.desc}
         </Text>
-
       </Details>
     </Container>
   );

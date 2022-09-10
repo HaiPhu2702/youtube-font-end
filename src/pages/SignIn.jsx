@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import styled from "styled-components";
 import axios from "axios";
 import {useDispatch} from "react-redux";
-import {loginFailure, loginStart, loginSuccess, SignUpSuccess, SignUpStart, SignUpFailure} from "../redux/userSlice";
+import {loginFailure, loginStart, loginSuccess, SignUpStart, SignUpFailure} from "../redux/userSlice";
 import {auth, provider} from "../firebase"
 import {signInWithPopup} from "firebase/auth"
 import {useNavigate} from "react-router-dom";

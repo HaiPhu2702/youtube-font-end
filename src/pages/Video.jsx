@@ -1,10 +1,9 @@
-import React, {useEffect, useLayoutEffect, useState} from "react";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { useNavigate, useParams} from "react-router-dom";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
-import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -12,7 +11,6 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 import Upload from "../components/Upload"
 import Comments from "../components/Comments";
 import {LinearProgress} from "@mui/material";
-import {tr} from "timeago.js/lib/lang";
 
 
 import {useDispatch, useSelector} from "react-redux";

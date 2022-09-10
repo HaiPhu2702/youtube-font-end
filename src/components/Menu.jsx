@@ -90,9 +90,7 @@ const navigate=useNavigate()
 
 
     const handleLogout = () => {
-       localStorage.setItem('token', '');
-       localStorage.setItem('persist:root', '');
-       navigate('/signin')
+
     }
 
 
@@ -129,13 +127,13 @@ const navigate=useNavigate()
                 </Link>
 
                 <Hr/>
-                <Item onClick={() => setDarkMode(!darkMode)}>
-                    <SettingsBrightnessOutlinedIcon/>
-                    {darkMode ? "Light" : "Dark"} Mode
+                <Item>
+                    <VideoLibraryOutlinedIcon/>
+                    Library
                 </Item>
-                <Item onClick={handleLogout}>
-                    <LogoutIcon />
-                    Logout
+                <Item>
+                    <HistoryOutlinedIcon/>
+                    History
                 </Item>
                 <Hr/>
 
@@ -182,13 +180,13 @@ const navigate=useNavigate()
                     Live
                 </Item>
                 <Hr/>
-                 <Item>
-                    <VideoLibraryOutlinedIcon/>
-                    Library
+                <Item onClick={() => setDarkMode(!darkMode)}>
+                    <SettingsBrightnessOutlinedIcon/>
+                    {darkMode ? "Light" : "Dark"} Mode
                 </Item>
-                <Item>
-                    <HistoryOutlinedIcon/>
-                    History
+                <Item onClick={handleLogout}>
+                    <LogoutIcon />
+                    Logout
                 </Item>
                 <Item>
                     <SettingsOutlinedIcon/>

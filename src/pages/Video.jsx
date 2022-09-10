@@ -17,7 +17,6 @@ import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import {fetchSuccess, like, dislike} from "../redux/videoSlice"
 import {subscription} from "../redux/userSlice"
-import {format} from "timeago.js";
 import Recommendation from "../components/Recommendation";
 
 const Container = styled.div`
@@ -207,7 +206,7 @@ const Video = () => {
                     </VideoWrapper>
                     <Title>{currentVideo.title}</Title>
                     <Details>
-                        <Info>{currentVideo.views}views • {format(currentVideo.createdAt)}</Info>
+                        <Info>{currentVideo.views}views • {currentVideo.createdAt}</Info>
                         <Buttons>
 
 

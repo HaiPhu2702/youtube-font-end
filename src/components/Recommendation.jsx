@@ -8,7 +8,6 @@ const Container = styled.div`
 `;
 const Recommendation = ({tags}) => {
     const [videos, setVideos] = useState([])
-    console.log(tags)
     useEffect(() => {
         const fetchVideo = async () => {
             const res = await axios.get(`/videos/tags?tags=${tags}`)

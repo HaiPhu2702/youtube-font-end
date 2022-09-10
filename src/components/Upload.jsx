@@ -132,11 +132,8 @@ const Upload = ({setClose,setUpdate}) => {
         )
 
     }
-
     const navigate=useNavigate()
-
     const {id} = useParams();
-    console.log(id)
     const handleUpdateVideo=async ()=>{
         await axios.put(`/videos/${id}`)
             .then(response=>{

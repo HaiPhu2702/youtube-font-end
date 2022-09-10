@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-
 const initialState = {
     currentVideo:null,
     loading:false,
@@ -30,22 +29,16 @@ export const videoSlice = createSlice({
 
                 //tìm trong mảng dislike xem có chưa;; if có  thì gỡ ra
                    const userId=state.currentVideo.dislikes.findIndex(userId => userId===action.payload)
-                console.log(userId)
                 state.currentVideo.dislikes.splice(userId,1)
             }
         },
-
          dislike: (state,action)=>{
             //if trong mang like k chứa id ms làm
             if(!state.currentVideo.dislikes.includes(action.payload)){
                 //thêm id ng like vào
-                console.log(1)
                 state.currentVideo.dislikes.push(action.payload);
-
                 //tìm trong mảng dislike xem có chưa;; if có  thì gỡ ra
                    const userId=state.currentVideo.likes.findIndex(userId => userId===action.payload)
-                                console.log(userId)
-
                 state.currentVideo.likes.splice(userId,1)
             }
         },

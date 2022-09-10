@@ -111,8 +111,10 @@ const Upload = ({setClose,setUpdate}) => {
                 urlType==='imgUrl'?setImgPerc(Math.round(progress)):setVideoPerc(Math.round(progress));
                 switch (snapshot.state) {
                     case 'paused':
+                        console.log('Upload is paused');
                         break;
                     case 'running':
+                        console.log('Upload is running');
                         break;
                 }
             },
@@ -130,8 +132,11 @@ const Upload = ({setClose,setUpdate}) => {
         )
 
     }
+
     const navigate=useNavigate()
+
     const {id} = useParams();
+    console.log(id)
     const handleUpdateVideo=async ()=>{
         await axios.put(`/videos/${id}`)
             .then(response=>{

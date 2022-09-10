@@ -111,10 +111,8 @@ const Upload = ({setClose,setUpdate}) => {
                 urlType==='imgUrl'?setImgPerc(Math.round(progress)):setVideoPerc(Math.round(progress));
                 switch (snapshot.state) {
                     case 'paused':
-                        console.log('Upload is paused');
                         break;
                     case 'running':
-                        console.log('Upload is running');
                         break;
                 }
             },

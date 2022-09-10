@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {useLocation} from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card"
+const baseUrl=process.env.REACT_APP_BASE_URL
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Search = () => {
 
     useEffect(() => {
         const fetchVideo = async () => {
-            const res = await axios.get(`/videos/search${query}`)
+            const res = await axios.get(baseUrl+`/videos/search${query}`)
             setVideos(res.data)
         }
         fetchVideo()

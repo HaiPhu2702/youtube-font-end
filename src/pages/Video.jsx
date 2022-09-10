@@ -1,10 +1,9 @@
-import React, {useEffect, useLayoutEffect, useState} from "react";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { useNavigate, useParams} from "react-router-dom";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
-import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -12,15 +11,15 @@ import UpgradeIcon from '@mui/icons-material/Upgrade';
 import Upload from "../components/Upload"
 import Comments from "../components/Comments";
 import {LinearProgress} from "@mui/material";
-import {tr} from "timeago.js/lib/lang";
-
-
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import {fetchSuccess, like, dislike} from "../redux/videoSlice"
 import {subscription} from "../redux/userSlice"
 import {format} from "timeago.js";
 import Recommendation from "../components/Recommendation";
+const baseUrl=process.env.REACT_APP_BASE_URL
+
+
 
 const Container = styled.div`
   display: flex;
@@ -153,9 +152,9 @@ const Video = () => {
 
     const fetchData = async () => {
         try {
-            const videoRes = await axios.get(`/videos/find/${id}`);
+            const videoRes = await axios.get(baseUrl+`/videos/find/${id}`);
             const channelRes = await axios.get(
-                `/users/find/${videoRes.data.userId}`
+                baseUrl+`/users/find/${videoRes.data.userId}`
             );
             setChannel(channelRes.data);
             dispatch(fetchSuccess(videoRes.data));
@@ -169,25 +168,25 @@ const Video = () => {
 }, [id, dispatch]);
 
     const handleLike = async () => {
-        await axios.put(`/users/like/${currentVideo._id}`);
+        await axios.put(baseUrl+`/users/like/${currentVideo._id}`);
         dispatch(like(currentUser._id));
     };
 
     const handleDisLike = async () => {
-        await axios.put(`/users/dislike/${currentVideo._id}`);
+        await axios.put(baseUrl+`/users/dislike/${currentVideo._id}`);
         dispatch(dislike(currentUser._id));
     };
 
     const handleSubscribe = async () => {
         currentUser.subscribedUsers.includes(chanel._id)
-            ? await axios.put(`/users/unsub/${chanel._id}`)
-            : await axios.put(`/users/sub/${chanel._id}`);
+            ? await axios.put(baseUrl+`/users/unsub/${chanel._id}`)
+            : await axios.put(baseUrl+`/users/sub/${chanel._id}`);
 
         dispatch(subscription(chanel._id))
     }
 
     const handleDelete = async () => {
-        await axios.delete(`/videos/${id}`)
+        await axios.delete(baseUrl+`/videos/${id}`)
             .then(res=>navigate('/'))
             .catch(err=>alert(err.response.data.message));
     }

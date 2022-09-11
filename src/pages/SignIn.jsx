@@ -147,9 +147,9 @@ const SignIn = () => {
                 {signupSuccess && <p style={{color: "blue"}}>SignUp success</p>}
                 {SignFailure && <p style={{color: "red"}}>SignUp fail, please check again!!</p>}
 
-                <Input placeholder="username" onChange={(e) => setName(e.target.value)}/>
-                <Input placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
-                <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
+                <Input placeholder="username" onChange={(e) => setName(e.target.value)} defaultValue={name}/>
+                <Input placeholder="email" onChange={(e) => setEmail(e.target.value)} defaultValue={email}/>
+                <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} defaultValue={password}/>
                 <Button onClick={handleSignUp}>Sign up</Button>
             </Wrapper>
             <More>

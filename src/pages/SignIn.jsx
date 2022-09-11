@@ -99,6 +99,9 @@ const SignIn = () => {
             if (res.data.success === true) {
                 setSignupSuccess(true)
                 setSignupFailure(false)
+                setName('')
+                setEmail('')
+                setPassword('')
             }
         } catch (e) {
             dispatch(SignUpFailure())

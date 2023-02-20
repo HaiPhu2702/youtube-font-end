@@ -3,7 +3,10 @@ import queryString from 'query-string';
 
 const axiosClient = axios.create({
   baseURL: "https://youtube-back-end.vercel.app/api",
-  headers: {'content-type': 'application/json',},
+  headers: {
+    'content-type': 'application/json',
+    'access-control-origin': '*'
+},
   paramsSerializer: (params) => queryString.stringify(params),
 });
 
